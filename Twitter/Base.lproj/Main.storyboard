@@ -57,13 +57,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="x0n-4Z-bGK">
-                                <rect key="frame" x="0.0" y="24.5" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tweetCell" rowHeight="115" id="x0n-4Z-bGK" customClass="TweetCellTableViewCell" customModule="Twitter" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="24.5" width="375" height="115"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x0n-4Z-bGK" id="Z8o-bZ-rgk">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="115"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Fu-Hm-JPJ">
+                                            <rect key="frame" x="89" y="11" width="69" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="22" id="ovJ-0W-AG2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GgA-l2-2JC">
+                                            <rect key="frame" x="89" y="41" width="270" height="63"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="718-zh-nH7">
+                                            <rect key="frame" x="16" y="25" width="65" height="65"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="65" id="GSc-01-1Il"/>
+                                                <constraint firstAttribute="width" relation="lessThanOrEqual" constant="65" id="TrV-jh-YGO"/>
+                                                <constraint firstAttribute="height" constant="65" id="dTx-1L-gRY"/>
+                                                <constraint firstAttribute="height" relation="lessThanOrEqual" constant="65" id="grl-n7-C1n"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="sHJ-uB-S3w"/>
+                                                <constraint firstAttribute="width" constant="65" id="vSC-jP-SUj"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0Fu-Hm-JPJ" secondAttribute="trailing" constant="20" symbolic="YES" id="BBA-di-y2m"/>
+                                        <constraint firstItem="0Fu-Hm-JPJ" firstAttribute="leading" secondItem="718-zh-nH7" secondAttribute="trailing" constant="8" symbolic="YES" id="Grw-la-HW7"/>
+                                        <constraint firstItem="718-zh-nH7" firstAttribute="leading" secondItem="Z8o-bZ-rgk" secondAttribute="leadingMargin" id="INL-R7-ewb"/>
+                                        <constraint firstItem="GgA-l2-2JC" firstAttribute="top" secondItem="0Fu-Hm-JPJ" secondAttribute="bottom" constant="8" symbolic="YES" id="MVY-hw-O4Y"/>
+                                        <constraint firstItem="0Fu-Hm-JPJ" firstAttribute="top" secondItem="Z8o-bZ-rgk" secondAttribute="topMargin" id="ZpZ-kf-PyQ"/>
+                                        <constraint firstItem="718-zh-nH7" firstAttribute="top" secondItem="Z8o-bZ-rgk" secondAttribute="topMargin" constant="14" id="clq-aO-l6G"/>
+                                        <constraint firstItem="GgA-l2-2JC" firstAttribute="trailing" secondItem="Z8o-bZ-rgk" secondAttribute="trailingMargin" id="dud-C6-mZ5"/>
+                                        <constraint firstItem="718-zh-nH7" firstAttribute="leading" secondItem="Z8o-bZ-rgk" secondAttribute="leadingMargin" id="epp-l4-Y1d"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="718-zh-nH7" secondAttribute="bottom" constant="14" id="qV3-Sd-D6w"/>
+                                        <constraint firstItem="GgA-l2-2JC" firstAttribute="leading" secondItem="718-zh-nH7" secondAttribute="trailing" constant="8" symbolic="YES" id="vCm-0V-lQx"/>
+                                        <constraint firstItem="GgA-l2-2JC" firstAttribute="bottom" secondItem="Z8o-bZ-rgk" secondAttribute="bottomMargin" id="zvW-eb-eid"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="profileImageView" destination="718-zh-nH7" id="e1F-jz-4fT"/>
+                                    <outlet property="tweetContent" destination="GgA-l2-2JC" id="qik-bh-GPy"/>
+                                    <outlet property="userNameLabel" destination="0Fu-Hm-JPJ" id="2gX-vJ-ssa"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -82,7 +128,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0cx-lq-x4D" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1351" y="-510"/>
+            <point key="canvasLocation" x="1349.5999999999999" y="-510.49475262368821"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="myS-QZ-wdG">
